@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <div class="container mt-5">
+        <h1>All Projects</h1>
+    </div>
+    <div class="container mt-3">
         <div
             class="table-responsive"
         >
