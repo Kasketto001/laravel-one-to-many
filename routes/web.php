@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
@@ -29,7 +30,9 @@ Route::middleware(['auth', 'verified'])
             ->name('dashboard');
 
         Route::resource('projects', ProjectController::class);
-
+        Route::resource('projects', ProjectController::class)->parameters([
+            'projects' => 'project:slug'
+        ]);
     });
 
 

@@ -17,6 +17,9 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+
+    {{-- FAWE --}}
+    <script src="https://kit.fontawesome.com/5da565da38.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

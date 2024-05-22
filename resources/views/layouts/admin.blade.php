@@ -17,6 +17,8 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+    {{-- FAWE --}}
+    <script src="https://kit.fontawesome.com/5da565da38.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -45,9 +47,13 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin') }}">{{ __('Admin') }}</a>
-                            <a class="nav-link" href="{{url('/admin/projects') }}">{{ __('Projects') }}</a>
 
                         </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="{{url('/admin/projects') }}">{{ __('Projects') }}</a>
+                        </li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
