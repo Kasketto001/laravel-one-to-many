@@ -4,7 +4,7 @@
     <div class="container mt-5 d-flex justify-content-between">
         <h1>New Project</h1>
     </div>
-    <div class="container mt-3">
+    <div class="container mx-3">
 
         @if ($errors->any())
             
@@ -23,7 +23,7 @@
 
 
 
-        <form action="{{ route('admin.projects.store') }}" method="post">
+        <form action="{{ route('admin.projects.store') }}" method="post" multipart="multipart/form-data">
             @csrf
 
             <div class="mb-3">
@@ -84,23 +84,18 @@
             </div>
 
             <div class="mb-3">
-                <label for="thumb" class="form-label">Thumbnail URL</label>
+                <label for="thumb" class="form-label">Add Thumbnail</label>
                 <input
-                    type="text"
-                    class="form-control @error('thumb') is-invalid @enderror"
+                    type="file"
+                    class="form-control"
                     name="thumb"
                     id="thumb"
-                    aria-describedby="thumbHelp"
-                    placeholder="Thumbnail URL"
-                    value="{{old('thumb')}}"
+                    placeholder="Add Thumbnail"
+                    aria-describedby="thumbHelpId"
                 />
-                <small id="thumbHelp" class="form-text text-muted">Provide the thumbnail URL (optional)</small>
-                @error('thumb')
-                <div class="text-danger py-3">
-                    {{$message}}
-                </div>
-                @enderror
+                <div id="thumbHelpId" class="form-text">Upload your thumbnail of project</div>
             </div>
+            
             
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

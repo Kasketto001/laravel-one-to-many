@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades;
 class ProjectController extends Controller
 {
     /**
@@ -34,6 +35,9 @@ class ProjectController extends Controller
 
         $slug = Str::slug($request->title, '-');
         $validated['slug'] = $slug;
+
+        $image_path = Storage::put('uploads', $validated['thumb']);
+        dd($image_path);
         Project::create($validated);
         
         return to_route('admin.projects.index');
