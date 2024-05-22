@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="container d-flex justify-content-center align-items-center">
-                <img  class=" rounded" src="{{$project->thumb}}" alt="">
+                <img  class=" rounded" src="{{asset('storage/app/public/uploads/' . $project->thumb)}}" alt="">
             </div>
             <h2 class="mb-3">Descrizione</h2>
             <p>{{ $project->description }}</p>

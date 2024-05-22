@@ -8,6 +8,9 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\Storage;
+
+
 class ProjectController extends Controller
 {
     /**
@@ -37,7 +40,6 @@ class ProjectController extends Controller
         $validated['slug'] = $slug;
 
         $image_path = Storage::put('uploads', $validated['thumb']);
-        dd($image_path);
         Project::create($validated);
         
         return to_route('admin.projects.index');

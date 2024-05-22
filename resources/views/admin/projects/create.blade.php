@@ -23,7 +23,7 @@
 
 
 
-        <form action="{{ route('admin.projects.store') }}" method="post" multipart="multipart/form-data">
+        <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
