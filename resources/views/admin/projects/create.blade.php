@@ -5,23 +5,15 @@
         <h1>New Project</h1>
     </div>
     <div class="container mx-3">
-
         @if ($errors->any())
-            
-            <div
-                class="alert alert-danger"
-                role="alert"
-            >
+            <div class="alert alert-danger" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error )
-                        <li>{{$error}}</li>
+                        <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
-            
         @endif
-
-
 
         <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -35,12 +27,12 @@
                     id="title"
                     aria-describedby="titleHelp"
                     placeholder="Project Title"
-                    value="{{old('title')}}"
+                    value="{{ old('title') }}"
                 />
                 <small id="titleHelp" class="form-text text-muted">Write the project title</small>
                 @error('title')
                 <div class="text-danger py-3">
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
@@ -54,12 +46,11 @@
                     rows="3"
                     aria-describedby="descriptionHelp"
                     placeholder="Project Description"
-                    
-                >{{old('description')}}</textarea>
+                >{{ old('description') }}</textarea>
                 <small id="descriptionHelp" class="form-text text-muted">Write the project description</small>
                 @error('description')
                 <div class="text-danger py-3">
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
@@ -73,12 +64,12 @@
                     id="author"
                     aria-describedby="authorHelp"
                     placeholder="Author Name"
-                    value="{{old('author')}}"
+                    value="{{ old('author') }}"
                 />
                 <small id="authorHelp" class="form-text text-muted">Write the author's name (optional)</small>
                 @error('author')
                 <div class="text-danger py-3">
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
@@ -95,14 +86,15 @@
                 />
                 <div id="thumbHelpId" class="form-text">Upload your thumbnail of project</div>
             </div>
+
             <div class="mb-3">
                 <label for="type_id">Type</label>
-                    <select name="type_id" id="type_id" class="form-control">
-                        <option value="">Select Type</option>
-                        @foreach($types as $type)
-                            <option value="{{ $type->id }}" {{ old('type_id', $project->type_id ?? '') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
-                        @endforeach
-                    </select>
+                <select name="type_id" id="type_id" class="form-control">
+                    <option value="">Select Type</option>
+                    @foreach($types as $type)
+                        <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                    @endforeach
+                </select>
             </div>
             
             <button type="submit" class="btn btn-primary">Submit</button>
