@@ -26,6 +26,7 @@ class StoreProjectRequest extends FormRequest
             'description' => 'nullable',
             'author' => 'nullable',
             'thumb' => 'nullable|image',
+            'type_id' => 'nullable|exists:types,id',
 
 
 
