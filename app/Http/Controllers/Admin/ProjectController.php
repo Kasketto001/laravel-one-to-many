@@ -71,8 +71,20 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        // Aggiornamento del progetto
+        $validated = $request->validated();
+
+        if ($request->hasFile('thumb')) {
+            if ($project->thumb && Storage::exists($project->thumb)) {
+                Storage::delete($project->thumb);
+            }
+            $validated['thumb'] = $request->file('thumb')->store('public/uploads');
+        }
+
+        $project->update($validated);
+
+        return redirect()->route('admin.projects.index')->with('success', 'Project updated successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.

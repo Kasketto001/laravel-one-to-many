@@ -27,7 +27,8 @@ class StoreProjectRequest extends FormRequest
             'author' => 'nullable',
             'thumb' => 'nullable|image',
             'type_id' => 'nullable|exists:types,id',
-
+            'link_repository' => 'nullable|url',
+            'link_preview' => 'nullable|url',
 
 
         ];

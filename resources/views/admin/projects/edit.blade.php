@@ -23,7 +23,7 @@
 
 
 
-        <form action="{{ route('admin.projects.store') }}" method="post">
+        <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @METHOD('PUT')
 
@@ -85,17 +85,18 @@
             </div>
 
             <div class="mb-3">
-                <label for="thumb" class="form-label">Thumbnail URL</label>
+                <label for="thumb" class="form-label">Thumbnail Image</label>
                 <input
-                    type="text"
-                    class="form-control @error('thumb') is-invalid @enderror"
+                    type="file"
+                    class="form-control"
                     name="thumb"
                     id="thumb"
-                    aria-describedby="thumbHelp"
-                    placeholder="Thumbnail URL"
-                    value="{{$project->thumb}}"
+                    placeholder="Add Thumbnail"
+                    aria-describedby="thumbHelpId"
+                    value="{{ asset(str_replace('public', 'storage', $project->thumb)) }}"
                 />
-                <small id="thumbHelp" class="form-text text-muted">Provide the thumbnail URL (optional)</small>
+
+                <small id="thumbHelp" class="form-text text-muted">Provide the thumbnail image (optional)</small>
                 @error('thumb')
                 <div class="text-danger py-3">
                     {{$message}}
