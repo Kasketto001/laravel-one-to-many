@@ -23,7 +23,7 @@
 
 
 
-        <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.projects.update', $project)}}" method="post" enctype="multipart/form-data">
             @csrf
             @METHOD('PUT')
 
