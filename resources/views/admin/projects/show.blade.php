@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="container d-flex justify-content-center align-items-center">
-                <img  class=" rounded" src="{{asset('storage/app/public/uploads/' . $project->thumb)}}" alt="">
+                <img class="rounded" src="{{ asset(str_replace('public', 'storage', $project->thumb)) }}" alt="">
             </div>
             <h4 class="mt-4">Tipo</h4>
             @if($project->type)

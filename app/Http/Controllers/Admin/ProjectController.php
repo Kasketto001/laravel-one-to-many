@@ -8,9 +8,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Storage;
-
 
 class ProjectController extends Controller
 {
@@ -41,7 +39,11 @@ class ProjectController extends Controller
         $slug = Str::slug($request->title, '-');
         $validated['slug'] = $slug;
 
-        $image_path = Storage::put('uploads', $validated['thumb']);
+        if ($request->hasFile('thumb')) {
+            $image_path = $request->file('thumb')->store('public/uploads');
+            $validated['thumb'] = $image_path;
+        }
+
         Project::create($validated);
         
         return to_route('admin.projects.index');
@@ -69,7 +71,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        // Aggiornamento del progetto
     }
 
     /**
@@ -77,6 +79,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->thumb && Storage::exists($project->thumb)) {
+            Storage::delete($project->thumb);
+        }
+
         $project->delete();
         return to_route('admin.projects.index');
     }
