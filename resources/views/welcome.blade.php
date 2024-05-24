@@ -1,15 +1,23 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="jumbotron p-5 mb-4 bg-light rounded-3">
+<div class="jumbotron rounded-3">
     <div class="container py-5">
-        </div>
-        <h1 class="display-5 fw-bold">
-            Welcome to Laravel+Bootstrap 5
+    <div
+        class="row justify-content-center align-items-center g-2"
+    >
+        <div class="col">
+            <h1 class="display-10 fw-bold text-justify text-uppercase">
+            I'M <span class="text-yellow">ALESSANDRO CASCONE</span>, FULL-STACK WEB DEVELOPER
         </h1>
-
-        <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel breeze/blade. It works from laravel 9.x to the latest release 10.x</p>
-        <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn btn-primary btn-lg" type="button">Documentation</a>
+        </div>
+        <div class="col">
+            <div class="image gap-3">
+                <span class="on-hover-contents">but everybody calls me</span>
+                <img class="on-hover-contents" src="https://i.ibb.co/3hpjcLy/Group-161.png" width="300">
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 

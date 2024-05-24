@@ -97,6 +97,31 @@
                 </select>
             </div>
             
+            <div class="mb-3">
+                <label for="author" class="form-label">Repository Link</label>
+                <input
+                    type="text"
+                    class="form-control @error('link_repository') is-invalid @enderror"
+                    name="link_repository"
+                    id="link_repository"
+                    aria-describedby="link_repositoryHelp"
+                    placeholder="Link github repository"
+                />
+            </div>
+
+            <div class="mb-3">
+                <label for="author" class="form-label">Live Preview Link</label>
+                <input
+                    type="text"
+                    class="form-control @error('link_preview') is-invalid @enderror"
+                    name="link_preview"
+                    id="link_preview"
+                    aria-describedby="link_previewHelp"
+                    placeholder="live preview link"
+                />
+            </div>
+
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
